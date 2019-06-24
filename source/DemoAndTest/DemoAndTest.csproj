@@ -50,18 +50,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FingerprintGenerator.cs" />
+    <Compile Include="Generate\FingerprintGenerator.cs" />
+    <Compile Include="Generate\ImageSource.cs" />
+    <Compile Include="Generate\Step\BlurStep.cs" />
+    <Compile Include="Generate\Step\EqualizeStep.cs" />
+    <Compile Include="Generate\Step\FinalResampleStep.cs" />
+    <Compile Include="Generate\Step\FirstResampleStep.cs" />
+    <Compile Include="Generate\Step\IGenerateStep.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Generate\Step\ModulateStep.cs" />
+    <Compile Include="Generate\Step\MonoStep.cs" />
+    <Compile Include="Generate\Step\NormalizeStep.cs" />
+    <Compile Include="Generate\Step\ThresholdStep.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Images\port_1.jpg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\..\packages\Magick.NET-Q8-x64.7.14.0\build\net40\Magick.NET-Q8-x64.targets" Condition="Exists('..\..\packages\Magick.NET-Q8-x64.7.14.0\build\net40\Magick.NET-Q8-x64.targets')" />

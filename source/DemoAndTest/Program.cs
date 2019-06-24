@@ -7,8 +7,27 @@ namespace DemoAndTest
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(MagickColors.GhostWhite);
-            Console.ReadKey(true);
+            try
+            {
+                var generator = new FingerprintGenerator();
+                using (var source = new ImageSource())
+                {
+                    while (source.Next(out string imgFile))
+                    {
+                        generator.Generate(imgFile);
+                    }
+                }
+
+                Console.WriteLine("done");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+            finally
+            {
+                Console.ReadKey(true);
+            }
         }
     }
 }
